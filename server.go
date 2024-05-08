@@ -1,19 +1,17 @@
 package main
 
 import (
-    // "sorting/algos"
+	// "sorting/algos"
 	// "math/rand"
+	"log"
 	"net/http"
 )
 
 func main() {
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        w.Write([]byte("Hello, World!"))
-    })
+    // http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+    //     w.Write([]byte("Hello, World!"))
+    // })
 
-    http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-    })
-
-
-    http.ListenAndServe(":4000", nil)
+    http.Handle("/", http.FileServer(http.Dir("./public"))) 
+    log.Fatal(http.ListenAndServe(":4000", nil))
 }
