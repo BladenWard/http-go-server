@@ -6,7 +6,20 @@ h2 {
     margin-bottom: 20px;
 }
 
-footer {
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 1;
+}
+
+#bars {
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+}
+
+#footer {
     background-color: #f8f9fa;
     padding: 25px 0;
     text-align: center;
