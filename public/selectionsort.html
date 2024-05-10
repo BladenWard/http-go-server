@@ -4,12 +4,24 @@
         <title>Sorting Algorithm Visualizer</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <!-- <script type="module" src="/js/index.js"></script> -->
+        <script type="module" src="/js/selectionsortpage.js"></script>
     </head>
 
     <body>
         <main>
-            <h2>Basic sorting algorithm visualizer</h2>
+            <h2 id="h2">Basic sorting algorithm visualizer</h2>
+
+            <section>
+                <div id="container">
+                    <h3 id="caption">Selection sort</h3>
+                    <div id="bars"></div>
+                </div>
+
+                <div style="padding: 0.5em">
+                    <button id="generateBars">Generate new array</button>
+                    <button id="sort">Sort</button>
+                </div>
+            </section>
 
             <hr />
 

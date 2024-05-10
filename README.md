@@ -4,8 +4,9 @@
 
 -   [x] Basic structure
 -   [x] Deploy this thing wherever
--   [ ] Fill out ui
+-   [x] Fill out ui
+-   [x] Implement visualizer
+-   [ ] proper refactor
 -   [ ] Write sorting algorithms
 -   [ ] Make pages for the algorithms
 -   [ ] Make routes and buttons for pages
--   [ ] Implement visualizer
