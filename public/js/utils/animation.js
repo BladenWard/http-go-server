@@ -1,5 +1,4 @@
 import { shuffle } from './shuffle.js';
-import { bubbleSort } from '../algos/bubblesort.js';
 
 export function run(sortingAlgo) {
     const n = 50; // Number of bars
@@ -8,6 +7,7 @@ export function run(sortingAlgo) {
 
     init();
 
+    // TODO: work on this
     function init() {
         barArray = [];
         for (let i = 0; i < n; i++) barArray.push(i + 1); 
