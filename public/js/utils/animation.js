@@ -7,6 +7,7 @@ export function run(sortingAlgo) {
 
     init();
 
+    // BUG: my work ethic lol
     // TODO: work on this
     function init() {
         barArray = [];
