@@ -7,8 +7,7 @@ export function run(sortingAlgo) {
 
     init();
 
-    // BUG: my work ethic lol
-    // TODO: work on this
+    // TODO: migrate to templ and use more go
     function init() {
         barArray = [];
         for (let i = 0; i < n; i++) barArray.push(i + 1); 
