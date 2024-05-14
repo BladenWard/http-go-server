@@ -8,7 +8,6 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
-    "github.com/BladenWard/http-go-server/pages"
 )
 
 func main() {
@@ -16,7 +15,7 @@ func main() {
     //     w.Write([]byte("Hello, World!"))
     // })
 
-    component := pages.hello("World")
+    component := hello("Bladen")
 
     http.Handle("/", templ.Handler(component)) 
 
