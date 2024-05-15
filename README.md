@@ -6,7 +6,8 @@
 -   [x] Deploy this thing wherever
 -   [x] Fill out ui
 -   [x] Implement visualizer
--   [ ] proper refactor
 -   [ ] Write sorting algorithms
 -   [ ] Make pages for the algorithms
+-   [ ] Add description to sorting pages
+-   [ ] proper refactor
 -   [ ] Make routes and buttons for pages

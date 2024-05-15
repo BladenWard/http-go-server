@@ -7,7 +7,6 @@ export function run(sortingAlgo) {
 
     init();
 
-    // TODO: migrate to templ and use more go
     function init() {
         barArray = [];
         for (let i = 0; i < n; i++) barArray.push(i + 1); 
@@ -17,7 +16,7 @@ export function run(sortingAlgo) {
 
     function lastPass(swaps) {
         for(let i = 1; i < barArray.length; i++) {
-            swaps.push({indices: [i - 1, i], type: "comp"});
+            swaps?.push({indices: [i - 1, i], type: "comp"});
         }
     }
 
@@ -26,10 +25,11 @@ export function run(sortingAlgo) {
         const swaps = sortingAlgo(copy);
         lastPass(swaps);
         animate(swaps);
+        console.log("done.");
     }
 
     function animate(swaps) {
-        if(!swaps.length){
+        if(!swaps?.length){
             displayBars()
             return;
         }
@@ -68,14 +68,16 @@ export function run(sortingAlgo) {
 
         const oscillator = audioCtx.createOscillator();
         oscillator.type = 'sine';
-        oscillator.frequency.value = freq;
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.1);
-        const node = audioCtx.createGain();
-        node.gain.value = 0.1;
-        node.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1)
-        oscillator.connect(node);
-        node.connect(audioCtx.destination);
+        if (isFinite(freq)) {
+            oscillator.frequency.value = freq;
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.1);
+            const node = audioCtx.createGain();
+            node.gain.value = 0.1;
+            node.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15)
+            oscillator.connect(node);
+            node.connect(audioCtx.destination);
+        }
     }
 
     document.getElementById('generateBars').addEventListener('click', () => {
