@@ -64,7 +64,8 @@ export function run(sortingAlgo) {
                 displayOpts = [i, j];
         }
 
-        playSound(200 + (barArray[i] * 3));
+        const sound = 300 + (barArray[j] * 3);
+        playSound(sound);
         displayBars(displayOpts)
         setTimeout(() => animate(swaps, copy), 10);
     }
