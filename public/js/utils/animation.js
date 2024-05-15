@@ -26,7 +26,6 @@ export function run(sortingAlgo) {
         const swaps = sortingAlgo(copy);
         lastPass(swaps);
         animate(swaps, unsortCopy);
-        console.log("done.");
     }
 
     function animate(swaps, copy) {
@@ -64,7 +63,7 @@ export function run(sortingAlgo) {
                 displayOpts = [i, j];
         }
 
-        const sound = 300 + (barArray[j] * 3);
+        const sound = 200 + (barArray[j] * 3);
         playSound(sound);
         displayBars(displayOpts)
         setTimeout(() => animate(swaps, copy), 10);
