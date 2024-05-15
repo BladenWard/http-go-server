@@ -72,22 +72,34 @@ css footer() {
     border-top: 1px solid #e9ecef;
 }
 
+
 templ Index() {
     <!DOCTYPE html>
     <html>
         <head>
             <title>Sorting Algorithm Visualizer</title>
             <meta charset="utf-8" />
-            <link rel="stylesheet" type="text/css" href="/public/css/styles.css" />
-            <link rel="stylesheet" href="/styles/templ.css" />
-            <!-- <script type="module" src="/js/index.js"></script> -->
+            <link rel="stylesheet" type="text/css" href="css/styles.css" />
+            <!--<script type="module" src="/js/bubblesortpage.js"></script>-->
         </head>
-    
-        <body>
-            <main class={body()}>
+        
+        <body class={body()}>
+            <main>
                 <h2 class={h2()}>Basic sorting algorithm visualizer</h2>
+        
+                <section class={section()}>
+                    <div class={container()}>
+                        <h3 class={caption()}>Bubble sort</h3>
+                        <div class={bars()}></div>
+                    </div>
     
-                <hr class={hr()}/>
+                    <div style="padding: 0.5em">
+                        <button id="generateBars">Generate new array</button>
+                        <button id="sort">Sort</button>
+                    </div>
+                </section>
+    
+                <hr class={hr()} />
     
                 <section class={section()}>
                     <h2>Navigation</h2>
