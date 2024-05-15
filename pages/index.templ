@@ -1,0 +1,115 @@
+package pages
+
+css h2() {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+css body() {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+css hr() {
+    margin: 1em 0;
+    width: 100%;
+    color: #e9ecef;
+}
+
+css section() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+css bar() {
+    width: 10px;
+    background-color: black;
+    margin: 0 2px;
+}
+
+css container() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+css bars() {
+    padding: 1em;
+    border: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+}
+
+css caption() {
+    display: flex;
+    caption-side: bottom;
+    margin-top: 0.5em;
+
+}
+
+css footer() {
+    background-color: #f8f9fa;
+    padding: 25px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    border-top: 1px solid #e9ecef;
+}
+
+templ Index() {
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Sorting Algorithm Visualizer</title>
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="/public/css/styles.css" />
+            <link rel="stylesheet" href="/styles/templ.css" />
+            <!-- <script type="module" src="/js/index.js"></script> -->
+        </head>
+    
+        <body>
+            <main class={body()}>
+                <h2 class={h2()}>Basic sorting algorithm visualizer</h2>
+    
+                <hr class={hr()}/>
+    
+                <section class={section()}>
+                    <h2>Navigation</h2>
+                    <nav>
+                        <ul>
+                            <li><a href="bubblesort.html">Bubble sort</a></li>
+                            <li><a href="selectionsort.html">Selection sort</a></li>
+                            <li><a href="insertionsort.html">Insertion sort</a></li>
+                            <li><a href="mergesort.html">Merge sort</a></li>
+                            <li><a href="quicksort.html">Quick sort</a></li>
+                            <li><a href="heapsort.html">Heap sort</a></li>
+                            <li><a href="radixsort.html">Radix sort</a></li>
+                        </ul>
+                    </nav>
+                </section>
+    
+                <!-- <div id="output">Maybe i'll put the dir of the algos here</div> -->
+            </main>
+            <footer class={footer()}>
+                <p>Site under construction</p>
+                <p>Created by <a href="https://github.com/BladenWard">Bladen Ward</a></p>
+            </footer>
+        </body>
+    </html>
+}

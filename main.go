@@ -1,21 +1,17 @@
 package main
 
 import (
-	// "sorting/algos"
-	// "math/rand"
 	"fmt"
 	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
+    "http-go-server/pages"
 )
 
 func main() {
-    // http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    //     w.Write([]byte("Hello, World!"))
-    // })
 
-    component := hello("Bladen")
+    component := pages.Index()
 
     http.Handle("/", templ.Handler(component)) 
 
