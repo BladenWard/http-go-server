@@ -17,36 +17,40 @@ export function mergeSortWrapper(array, l, r, swaps) {
 }
 
 function merge(array, l, m, r, swaps) {
-     var n1 = m - l + 1;
-        var n2 = r - m;
+    let n1 = m - l + 1;
+    let n2 = r - m;
 
         // Create temp arrays
-    var L = new Array(n1); 
-    var R = new Array(n2);
+    let L = new Array(n1); 
+    let R = new Array(n2);
 
     // Copy data to temp arrays L[] and R[]
-    for (var i = 0; i < n1; i++)
-    L[i] = array[l + i];
-    for (var j = 0; j < n2; j++)
-    R[j] = array[m + 1 + j];
+    for (let i = 0; i < n1; i++) {
+        L[i] = array[l + i];
+    }
+    for (let j = 0; j < n2; j++) {
+        R[j] = array[m + 1 + j];
+    }
 
     // Merge the temp arrays back into arr[l..r]
 
     // Initial index of first subarray
-    var i = 0;
+    let i = 0;
 
     // Initial index of second subarray
-    var j = 0;
+    let j = 0;
 
     // Initial index of merged subarray
-    var k = l;
+    let k = l;
 
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
+            swaps.push({sort: "merge", indices: [k, L[i]], type: "insert"});
             array[k] = L[i];
             i++;
         }
         else {
+            swaps.push({sort: "merge", indices: [k, R[j]], type: "insert"});
             array[k] = R[j];
             j++;
         }
@@ -56,6 +60,7 @@ function merge(array, l, m, r, swaps) {
     // Copy the remaining elements of
     // L[], if there are any
     while (i < n1) {
+        swaps.push({sort: "merge", indices: [k, L[i]], type: "insert"});
         array[k] = L[i];
         i++;
         k++;
@@ -64,6 +69,7 @@ function merge(array, l, m, r, swaps) {
     // Copy the remaining elements of
     // R[], if there are any
     while (j < n2) {
+        swaps.push({sort: "merge", indices: [k, R[j]], type: "insert"});
         array[k] = R[j];
         j++;
         k++;
@@ -71,8 +77,8 @@ function merge(array, l, m, r, swaps) {
 }
 
 const array = [21, 53, 65, 78, 33, 34, 67, 12, 89, 43, 55, 22, 11, 90, 32, 76, 45, 88, 23, 56];
-console.log(merge(array, 0, 3, 6, []))
-console.log(array)
-
-// mergeSort(array)
+// console.log(merge(array, 0, 3, 6, []))
 // console.log(array)
+
+mergeSort(array)
+console.log(array)

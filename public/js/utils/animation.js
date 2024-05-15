@@ -1,7 +1,7 @@
 import { shuffle } from './shuffle.js';
 
 export function run(sortingAlgo) {
-    const n = 50; // Number of bars
+    const n = 150; // Number of bars
     let barArray = []
     let audioCtx = null
 
@@ -24,7 +24,7 @@ export function run(sortingAlgo) {
         const copy = [...barArray];
         const unsortCopy = [...barArray];
         const swaps = sortingAlgo(copy);
-        // lastPass(swaps);
+        lastPass(swaps);
         animate(swaps, unsortCopy);
         console.log("done.");
     }
@@ -37,6 +37,7 @@ export function run(sortingAlgo) {
 
         const move = swaps.shift();
         const [i, j] = move.indices;
+        let displayOpts = "";
 
         if(move.type == "swap") {
             [barArray[i], barArray[j]] = [barArray[j], barArray[i]];
@@ -46,16 +47,33 @@ export function run(sortingAlgo) {
             barArray[i] = j;
         }
 
-        playSound(300 + (barArray[j] * 13));
-        displayBars([i])
-        setTimeout(() => animate(swaps, copy), 50);
+        switch(move.sort) {
+            case "bubble":
+                displayOpts = [j];
+                break;
+            case "selection":
+                displayOpts = [i, j];
+                break;
+            case "insertion":
+                displayOpts = [i];
+                break;
+            case "merge":
+                displayOpts = [i];
+                break;
+            default:
+                displayOpts = [i, j];
+        }
+
+        playSound(200 + (barArray[i] * 3));
+        displayBars(displayOpts)
+        setTimeout(() => animate(swaps, copy), 10);
     }
 
     function displayBars(indices) {
         bars.innerHTML = "";
         for(let i = 0; i < barArray.length; i++) {
             const bar = document.createElement('div');
-            bar.style.height = barArray[i] * 2 + "%";
+            bar.style.height = barArray[i] * 0.65 + "%";
             bar.classList.add('bar');
 
             if (indices && indices.includes(i)) {
@@ -75,13 +93,13 @@ export function run(sortingAlgo) {
         oscillator.type = 'sine';
         if (isFinite(freq)) {
             oscillator.frequency.value = freq;
-            oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 0.1);
             const node = audioCtx.createGain();
             node.gain.value = 0.1;
-            node.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15)
+            node.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1)
             oscillator.connect(node);
             node.connect(audioCtx.destination);
+            oscillator.start(audioCtx.currentTime);
+            oscillator.stop(audioCtx.currentTime + 0.1);
         }
     }
 

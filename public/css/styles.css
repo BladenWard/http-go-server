@@ -28,9 +28,9 @@ section {
 }
 
 .bar {
-    width: 10px;
+    width: 4px;
     background-color: black;
-    margin: 0 2px;
+    margin: 0.5px;
 }
 
 #container {

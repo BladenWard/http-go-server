@@ -6,7 +6,7 @@ export function bubbleSort(array) {
         for(let i = 1; i < array.length; i++) {
             if(array[i - 1] > array[i]) {
                 swapped = true;
-                moves.push({indices: [i - 1, i], type: "swap"});
+                moves.push({sort: "bubble", indices: [i - 1, i], type: "swap"});
                 [array[i - 1], array[i]] = [array[i], array[i - 1]];
             }
         }
