@@ -22,13 +22,14 @@ export function run(sortingAlgo) {
 
     function play() {
         const copy = [...barArray];
+        const unsortCopy = [...barArray];
         const swaps = sortingAlgo(copy);
-        lastPass(swaps);
-        animate(swaps);
+        // lastPass(swaps);
+        animate(swaps, unsortCopy);
         console.log("done.");
     }
 
-    function animate(swaps) {
+    function animate(swaps, copy) {
         if(!swaps?.length){
             displayBars()
             return;
@@ -40,10 +41,14 @@ export function run(sortingAlgo) {
         if(move.type == "swap") {
             [barArray[i], barArray[j]] = [barArray[j], barArray[i]];
         }
+    
+        if(move.type == "insert") {
+            barArray[i] = j;
+        }
 
         playSound(300 + (barArray[j] * 13));
-        displayBars([i, j])
-        setTimeout(() => animate(swaps), 50);
+        displayBars([i])
+        setTimeout(() => animate(swaps, copy), 50);
     }
 
     function displayBars(indices) {

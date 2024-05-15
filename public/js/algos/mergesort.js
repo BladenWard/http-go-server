@@ -1,76 +1,76 @@
-export function mergeSortWrapper(array) {
+export function mergeSort(array) {
+    const swaps = [];
     const l = 0;
     const r = array.length - 1;
-    mergeSort(array, l, r);
+    mergeSortWrapper(array, l, r, swaps);
+    return swaps;
 }
 
-export function mergeSort(array, l, r) {
+export function mergeSortWrapper(array, l, r, swaps) {
     if(l>=r || array.length <= 1){
         return;
     }
     let m = l + parseInt((r-l)/2);
-    mergeSort(array,l,m);
-    mergeSort(array,m+1,r);
-    merge(array,l,m,r);
+    mergeSortWrapper(array,l,m, swaps);
+    mergeSortWrapper(array,m+1,r, swaps);
+    merge(array,l,m,r, swaps);
 }
 
-function merge(array, l, m, r) {
-    let n1 = m - l + 1;
-    let n2 = r - m;
-
-    // Create temp arrays
-    let L = new Array(n1); 
-    let R = new Array(n2);
-
-    // Copy data to temp arrays L[] and R[]
-    for (let i = 0; i < n1; i++)
-    L[i] = array[l + i];
-    for (let j = 0; j < n2; j++)
-    R[j] = array[m + 1 + j];
+function merge(array, l, m, r, swaps) {
+    const copy = [...array]
 
     // Merge the temp arrays back into arr[l..r]
 
     // Initial index of first subarray
-    let i = 0;
+    let i = l;
 
     // Initial index of second subarray
-    let j = 0;
+    let j = m + 1;
 
     // Initial index of merged subarray
     let k = l;
 
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            array[k] = L[i];
+    while (i <= m && j <= r) {
+        swaps.push({indices: [i, j], type: "comp"});
+        if (copy[i] < copy[j]) {
+            swaps.push({indices: [k, copy[i]], type: "insert"});
+            array[k] = copy[i];
+            k++;
             i++;
         }
         else {
-            array[k] = R[j];
+            swaps.push({indices: [k, copy[j]], type: "insert"});
+            array[k] = copy[j];
+            k++;
             j++;
         }
-        k++;
     }
 
     // Copy the remaining elements of
     // L[], if there are any
-    while (i < n1) {
-        array[k] = L[i];
-        i++;
+    while (i < m) {
+        swaps.push({indices: [i, i], type: "comp"});
+        swaps.push({indices: [k, copy[i]], type: "insert"});
+        array[k] = copy[i];
         k++;
+        i++;
     }
 
     // Copy the remaining elements of
     // R[], if there are any
-    while (j < n2) {
-        array[k] = R[j];
-        j++;
+    while (j < r) {
+        swaps.push({indices: [j, j], type: "comp"});
+        swaps.push({indices: [k, copy[j]], type: "insert"});
+        array[k] = copy[j];
         k++;
+        j++;
     }
 }
 
-// const array1 = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
-// merge(array1, 0, 4, 9)
-// console.log(array1)
+const array1 = [2, 1]
+console.log(merge(array1, 0 ,0,  1, []))
+console.log(array1)
 
-const array = [65, 53, 78, 21, 33, 67, 34, 12, 89, 43, 55, 22, 11, 90, 32, 76, 45, 88, 23, 56];
-console.log(mergeSortWrapper(array));
+// const array = [65, 53, 78, 21, 33, 67, 34, 12, 89, 43, 55, 22, 11, 90, 32, 76, 45, 88, 23, 56];
+// mergeSort(array)
+// console.log(array)
