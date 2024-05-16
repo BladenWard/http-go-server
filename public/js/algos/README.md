@@ -8,7 +8,7 @@
 -   [x] Merge Sort
 -   [x] Quick Sort (ll)
 -   [ ] Quick Sort (lr)
--   [ ] Heap Sort
+-   [x] Heap Sort
 -   [ ] Radix Sort
 -   [ ] Counting Sort
 -   [ ] Bucket Sort
