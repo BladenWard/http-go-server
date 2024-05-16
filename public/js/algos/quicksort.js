@@ -33,8 +33,3 @@ function quickSortWrapper(arr, low, high, swaps) {
         quickSortWrapper(arr, pi + 1, high, swaps);
     }
 }
-
-let arr = [10, 7, 8, 9, 1, 5, 3, 4, 2, 6, 0, 11, 12, 13, 14, 15, 16, 17, 18, 19];
-
-const swaps = quickSort(arr);
-console.log("swaps: ", swaps);

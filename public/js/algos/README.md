@@ -9,7 +9,7 @@
 -   [x] Quick Sort (ll)
 -   [ ] Quick Sort (lr)
 -   [x] Heap Sort
--   [ ] Radix Sort
+-   [x] Radix Sort
 -   [ ] Counting Sort
 -   [ ] Bucket Sort
 -   [ ] Shell Sort
