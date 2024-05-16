@@ -4,9 +4,10 @@
 
 -   [x] Bubble Sort
 -   [x] Selection Sort
--   [ ] Insertion Sort
--   [ ] Merge Sort
--   [ ] Quick Sort
+-   [x] Insertion Sort
+-   [x] Merge Sort
+-   [x] Quick Sort (ll)
+-   [ ] Quick Sort (lr)
 -   [ ] Heap Sort
 -   [ ] Radix Sort
 -   [ ] Counting Sort
